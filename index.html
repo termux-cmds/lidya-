@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="sw"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14342e">
+<title>Mwaliko wa Send Off | Lidya Shauri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#14342e;--deep:#0b1f1b;--em:#1f4f43;--gold:#c9a85c;--gs:#e3cd94;--cream:#faf6ec;--paper:#fffdf7;--ink:#26332f;--mut:#7a847d;--line:#ece3cf}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden;font:400 15px/1.55 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{transition:background .6s,color .6s}
+body.gr{background:radial-gradient(ellipse at 50% 0,#2d6a58,transparent 60%),linear-gradient(160deg,var(--em),var(--green) 45%,var(--deep));color:#fffdf7;--nav:#0b1f1b;--nt:#aeb9b1}
+body.cr{background:radial-gradient(circle at 15% 10%,#f4ecd8,transparent 45%),radial-gradient(circle at 85% 90%,#eef3ea,transparent 45%),var(--cream);color:var(--ink);--nav:var(--paper);--nt:var(--mut)}
+body.dk{background:radial-gradient(circle at 50% 0,#1c3a73,#0a1633 70%);color:#eaf0ff;--nav:#08132a;--nt:#8fa0c4}
+.pf{font-family:'Playfair Display',Georgia,serif}
+#app{height:100%;display:flex;flex-direction:column}
+main{flex:1;position:relative;perspective:1200px;overflow:hidden}
+.v{position:absolute;inset:0;padding:calc(14px + env(safe-area-inset-top,0)) 18px 12px;overflow-y:auto;opacity:0;pointer-events:none;transform:translateY(16px) scale(.98);transition:.5s cubic-bezier(.2,.8,.2,1)}
+.v.on{opacity:1;pointer-events:auto;transform:none}
+.pg{max-width:480px;min-height:100%;margin:0 auto;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:clamp(8px,1.6vh,16px)}
+.eb{display:inline-block;align-self:center;font-size:11px;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--gs);padding-bottom:6px;border-bottom:1px solid #c9a85c59}
+.cr .eb,.dk .eb{color:var(--gold)}
+.orn{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold)}.orn:before,.orn:after{content:"";height:1px;width:60px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+h1{font:600 clamp(34px,6.4vh,54px)/1.05 'Playfair Display',serif;color:#fff9e9;text-shadow:0 2px 30px #c9a85c40}h1 em{font-weight:400;color:var(--gs)}
+h2{font:500 clamp(24px,4.4vh,32px)/1.2 'Playfair Display',serif;color:var(--green)}body.dk h2{color:#fff}
+.name{font:700 clamp(28px,5.4vh,42px)/1.15 'Playfair Display',serif;letter-spacing:3px;color:var(--gs);padding:clamp(8px,1.4vh,14px) 10px;border:1.5px solid var(--gold);border-radius:14px;background:linear-gradient(110deg,#ffffff0d 30%,#c9a85c40 50%,#ffffff0d 70%) 0 0/250% 100%;animation:sh 4s linear infinite;box-shadow:0 14px 34px -18px #000a}
+.cr .name{color:var(--green);background:linear-gradient(110deg,#fdf7e4 30%,#f1dfa6 50%,#fdf7e4 70%) 0 0/250% 100%}
+@keyframes sh{to{background-position:-250% 0}}
+.t{font-size:clamp(13px,1.9vh,15px);font-weight:300;line-height:1.65;opacity:.95}.t b{font-weight:600}
+.ti{font-size:13px;font-weight:500;color:var(--gold)}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;transform-style:preserve-3d}
+.cd div{background:#ffffff14;border:1px solid #c9a85c4d;border-radius:12px;padding:8px 0;backdrop-filter:blur(6px)}
+.cd b{display:block;font:600 clamp(22px,4vh,30px)/1.1 'Playfair Display',serif;color:var(--gs)}.cd span{font-size:9px;letter-spacing:2px;opacity:.8}
+.row{display:flex;gap:10px}
+.btn{flex:1;min-height:50px;padding:0 18px;border-radius:12px;border:0;font:500 14px Inter,sans-serif;letter-spacing:.5px;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;text-decoration:none;color:#fffdf7;background:linear-gradient(135deg,var(--em),var(--green));box-shadow:0 14px 30px -14px #14342e99;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(1px) scale(.98)}.btn:disabled{opacity:.6}
+.btn.gd{background:linear-gradient(135deg,#dcc07a,var(--gold));color:#1d2b25;font-weight:600}.btn.ol{background:transparent;border:1.5px solid var(--gold);color:var(--gs);box-shadow:none}
+.cr .btn.ol{color:var(--green)}
+.qa{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.qa a{padding:10px 4px;border-radius:12px;border:1px solid #c9a85c4d;background:#ffffff10;color:inherit;text-decoration:none;font-size:12px;font-weight:500;animation:fl 4s ease-in-out infinite}
+.qa a:nth-child(2){animation-delay:-1.3s}.qa a:nth-child(3){animation-delay:-2.6s}.qa b{display:block;font-size:20px}
+@keyframes fl{50%{transform:translateY(-3px)}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:0 12px 30px -18px #14342e40;color:var(--ink)}
+.ct{display:flex;flex-direction:column;gap:2px}.ct a{color:var(--green);font-weight:600;text-decoration:none;font-size:14px}.ct small{color:var(--mut);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.thx{font:italic 500 clamp(20px,3.4vh,26px)/1.25 'Playfair Display',serif;color:var(--green)}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:left;box-shadow:0 20px 50px -30px #14342e4d;color:var(--ink)}
+.dk .box{background:#ffffff10;border-color:#ffffff22;box-shadow:none;color:#eaf0ff}
+label{display:block;font-size:12px;opacity:.75;margin:8px 0 4px;font-weight:500}
+input,textarea,select{width:100%;min-height:46px;padding:11px 14px;border:1px solid #ddd4c0;background:#fffefa;border-radius:9px;font:400 16px Inter,sans-serif;color:var(--ink);outline:none;transition:border-color .25s,box-shadow .25s}
+input:focus,textarea:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px #c9a85c2e}
+.seg{display:flex;background:#efe9d8;border-radius:10px;padding:4px;margin-bottom:4px}.seg button{flex:1;min-height:40px;border:0;border-radius:8px;background:none;font:500 13px Inter;color:var(--mut)}.seg .on{background:var(--green);color:#fff}
+.pr{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pr div{border:1px solid #ffffff30;border-radius:14px;padding:12px 6px;background:#ffffff0d}.pr div+div{border-color:var(--gold);background:#c9a85c1f}
+.pr small{display:block;font-size:10px;letter-spacing:2.5px;font-weight:600;opacity:.75}.pr b{font:600 clamp(18px,3.4vh,24px)/1.3 'Playfair Display',serif;color:var(--gs)}
+.pay{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#ffffff12;border:1px solid #c9a85c59;border-radius:12px;padding:10px 14px;text-align:left;animation:gl 3s infinite}
+@keyframes gl{50%{box-shadow:0 0 18px #c9a85c40}}
+.pay small{display:block;opacity:.75;font-size:12px}.pay b{font:600 18px Inter;letter-spacing:.05em;color:var(--gs)}
+.cp{min-height:38px;padding:0 14px;border-radius:8px;border:1px solid var(--gold);background:transparent;color:var(--gs);font:500 12px Inter;cursor:pointer}
+.dl{font-size:14px}.dl b{color:var(--gs);border-bottom:1px dashed var(--gold);font-weight:600}
+.err{color:#d2554f;font-size:12px;min-height:15px;display:block}.dk .err{color:#ff9a96}
+.msg{font-size:14px;text-align:center}.hint{font-size:12px;opacity:.7}
+.lk{background:none;border:0;color:inherit;opacity:.65;text-decoration:underline;font:12px Inter;align-self:center}
+nav{display:flex;background:var(--nav);border-top:1px solid #ffffff14;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0));transition:background .6s}
+nav button{flex:1;border:0;background:none;font:500 11px Inter;color:var(--nt);padding:4px 0 6px;border-bottom:2px solid transparent;letter-spacing:.5px;transition:.3s}
+nav button b{display:block;font-size:20px;transition:.3s;filter:grayscale(1) opacity(.7)}nav button.on{color:var(--gold);border-color:var(--gold)}nav button.on b{transform:translateY(-3px) scale(1.15);filter:none}
+#sp{position:fixed;inset:0;z-index:9;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 0,#2d6a58,transparent 60%),linear-gradient(160deg,var(--em),var(--green) 45%,var(--deep));transition:opacity .8s .5s;perspective:900px;text-align:center;overflow:hidden;color:#fffdf7}
+#sp.out{opacity:0;pointer-events:none}
+.env{width:270px;height:175px;position:relative;transform-style:preserve-3d;animation:bob 3s ease-in-out infinite;cursor:pointer;margin:26px auto}
+@keyframes bob{50%{transform:rotateX(12deg) rotateY(-10deg) translateY(-8px)}}
+.env i{position:absolute;inset:0;background:#fbf3de;border-radius:6px;box-shadow:0 20px 40px #0006;border:1px solid var(--gold)}
+.env .fp{position:absolute;left:0;right:0;top:0;height:100px;background:linear-gradient(#e6d6a8,#d9c48a);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s;z-index:3}
+.env .ht{position:absolute;left:50%;top:72px;font-size:34px;transform:translateX(-50%);z-index:4;transition:.4s}
+.env.op .fp{transform:rotateX(180deg)}.env.op .ht{opacity:0;transform:translateX(-50%) scale(3)}.env.op{animation:none;transform:scale(1.4)}
+.sp{position:absolute;color:var(--gold);pointer-events:none;animation:tw 4s ease-in-out infinite;opacity:.5}
+@keyframes tw{50%{opacity:.1;transform:scale(.6) rotate(90deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body class="gr">
+<div id="sp"><div><p class="eb">Mwaliko Maalum</p><div class="env" id="env"><i></i><div class="fp"></div><div class="ht">💌</div></div><h1 style="font-size:40px">Lidya <em>Shauri</em></h1><p class="hint" style="margin-top:14px">Gusa bahasha kufungua mwaliko</p></div></div>
+<div id="app"><main>
+
+<section class="v on" id="home"><div class="pg" id="st3">
+ <span class="eb">Mwaliko Maalum</span><div class="orn">❖</div>
+ <h1>Mchango wa <em>Send Off</em></h1>
+ <p class="t">Kuwa binti yao Mpendwa</p>
+ <div class="name">LIDYA SHAURI</div>
+ <p class="t">Anatarajia kufanyiwa sherehe ya kuagwa (send off) tarehe <b>20/12/2026</b>.</p>
+ <div class="cd"><div><b id="d">0</b><span>SIKU</span></div><div><b id="h">0</b><span>SAA</span></div><div><b id="m">0</b><span>DAKIKA</span></div><div><b id="s">0</b><span>SEKUNDE</span></div></div>
+ <div class="row"><button class="btn gd" onclick="go('rsvp',true)">✓ Accept</button><button class="btn ol" onclick="go('rsvp',false)">✕ Decline</button></div>
+ <div class="qa"><a id="wa" target="_blank" rel="noopener"><b>💬</b>Share</a><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Malamba+Mawili+Kanisani+Dar+es+Salaam"><b>📍</b>Location</a><a href="tel:+255712254159"><b>📞</b>Call Us</a></div>
+</div></section>
+
+<section class="v" id="inv"><div class="pg">
+ <span class="eb">Kwa Upendo na Heshima</span>
+ <h2>Familia ya Mzee Stephano Shauri</h2>
+ <p class="t" style="color:var(--mut)">wa Malamba Mawili Kanisani, Dar es salaam wanayo furaha kukujulisha/kuwajulisha</p>
+ <p class="ti">Prof./Dr./Mhe./Bw &amp; Bi./Mch/Bw./Bi./Eng./Miss</p>
+ <p class="t">Kuwa binti yao Mpendwa</p><div class="name">LIDYA SHAURI</div>
+ <p class="t">Anatarajia kufanyiwa sherehe ya kuagwa (send off) tarehe 20/12/2026.</p>
+ <p class="t" style="color:#5c6862">Hivyo ukiwa ndugu, jamaa, jirani na rafiki wa karibu na familia hii kwa unyenyekevu mkubwa tunaomba mchango wako wa hali na mali ili kufanikisha maandalizi ya sherehe hii muhimu.</p>
+ <div class="card ct"><small>Mawasiliano:</small><a href="tel:+255712254159">0712254159 - Elizabeth Shauri</a><a href="tel:+255714970012">0714970012 - Stephano Shauri</a></div>
+ <p class="thx">Tunatanguliza shukrani zetu za dhati, Mungu akubariki sana</p>
+</div></section>
+
+<section class="v" id="rsvp"><div class="pg"><span class="eb">RSVP</span><h2>Thibitisha Ushiriki Wako</h2>
+ <div class="box"><div class="seg"><button id="sy" class="on" onclick="mode(true)">Accept</button><button id="sn" onclick="mode(false)">Decline</button></div>
+ <form id="rf" novalidate><label>Jina kamili</label><input id="r1" autocomplete="name"><span class="err"></span>
+ <label>Namba ya simu</label><input id="r2" type="tel" inputmode="tel" placeholder="07XXXXXXXX"><span class="err"></span>
+ <div id="ya"><label>Idadi ya wageni (Single 1, Double 2)</label><select id="r3"><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+ <label id="rl">Ujumbe wa pongezi (hiari)</label><textarea id="r4" rows="2" maxlength="300"></textarea>
+ <div class="row" style="margin-top:12px"><button class="btn" type="submit">Submit</button></div></form></div><p id="rok" class="msg"></p></div></section>
+
+<section class="v" id="login"><div class="pg"><span class="eb">Mchango</span><h2>Karibu Kuchangia</h2><p class="hint">Ingia kwa jina na namba yako ya simu</p>
+ <div class="box"><form id="lf" novalidate><label>Jina kamili</label><input id="l1" autocomplete="name"><span class="err"></span>
+ <label>Namba ya simu</label><input id="l2" type="tel" inputmode="tel" placeholder="07XXXXXXXX"><span class="err"></span>
+ <div class="row" style="margin-top:12px"><button class="btn gd" type="submit">Login</button></div></form></div></div></section>
+
+<section class="v" id="pay"><div class="pg"><span class="eb">Mchango wa Sherehe</span><p id="hi" class="hint"></p>
+ <div class="pr"><div><small>SINGLE</small><b>Tsh 70,000/=</b></div><div><small>DOUBLE</small><b>Tsh 100,000/</b></div></div>
+ <p class="t">Tunaomba mchango wako uwasilishe kwa:</p>
+ <div class="pay"><div><small>Lidya Shauri - Mpesa</small><b>0749521752</b></div><button class="cp" data-c="0749521752">Copy</button></div>
+ <div class="pay"><div><small>Lidya Shauri - Lipa namba Mpesa</small><b>36631816</b></div><button class="cp" data-c="36631816">Copy</button></div>
+ <p class="dl">“<b>Mwisho wa mchango ni tarehe 13/12/2026</b>”</p>
+ <div class="row"><button class="btn gd" onclick="go('pay2')">I Have Paid →</button></div>
+ <button class="lk" onclick="out()">Logout</button></div></section>
+
+<section class="v" id="pay2"><div class="pg"><span class="eb">Uthibitisho</span><h2>Tuma Ujumbe wa Muamala</h2>
+ <p class="t">Nakili ujumbe wa muamala uliotumwa kwenye simu yako, kisha ubandike hapa.</p>
+ <div class="box"><form id="pf" novalidate><label>Ujumbe wa muamala</label><textarea id="p1" rows="4" maxlength="600" placeholder="Bandika ujumbe wa muamala hapa..."></textarea><span class="err"></span>
+ <label>Kiasi (Tsh)</label><input id="p2" type="number" inputmode="numeric"><span class="err"></span>
+ <div class="row" style="margin-top:12px"><button class="btn ol" type="button" onclick="go('pay')">← Back</button><button class="btn gd" type="submit">Submit</button></div></form></div>
+ <p id="pok" class="msg"></p></div></section>
+</main>
+<nav><button class="on" onclick="go('home')"><b>🏠</b>Home</button><button onclick="go('inv')"><b>💌</b>Invitation</button><button onclick="go('rsvp')"><b>✍️</b>RSVP</button><button onclick="go('pay')"><b>💛</b>Contribute</button></nav></div>
+<script>
+const $=id=>document.getElementById(id),LS={get:k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del:k=>{try{localStorage.removeItem(k)}catch(e){}}};
+const post=async(u,b)=>{try{const r=await fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});return{ok:r.ok,...await r.json().catch(()=>({}))}}catch(e){return{ok:false,error:'Hakuna mtandao. Jaribu tena.'}}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ph=v=>/^(0|\+?255)[67]\d{8}$/.test(v.replace(/[\s-]/g,'')),bad=(f,i,m)=>f.querySelectorAll('.err')[i].textContent=m||'';
+let me=LS.get('me'),rm=true;
+function go(n,m){if((n==='pay'||n==='pay2')&&!me)n='login';if(n==='rsvp'&&typeof m==='boolean')mode(m);
+ document.querySelectorAll('.v').forEach(v=>v.classList.toggle('on',v.id===n));
+ document.body.className=n==='home'?'gr':(n==='inv'||n==='rsvp')?'cr':'dk';
+ const i={home:0,inv:1,rsvp:2,login:3,pay:3,pay2:3}[n];document.querySelectorAll('nav button').forEach((b,k)=>b.classList.toggle('on',k===i));
+ if(n==='pay')$('hi').textContent='Karibu, '+me.n;if(n==='rsvp'&&me){if(!$('r1').value)$('r1').value=me.n;if(!$('r2').value)$('r2').value=me.p}}
+function out(){me=null;LS.del('me');go('home')}
+for(let i=0;i<12;i++){const e=document.createElement('span');e.className='sp';e.textContent='✦';e.style.cssText=`left:${(i*37)%95}%;top:${(i*53)%90}%;font-size:${10+i%4*5}px;animation-delay:-${i*.7}s`;$('sp').append(e)}
+$('env').onclick=()=>{$('env').classList.add('op');setTimeout(()=>$('sp').classList.add('out'),900)};
+const S=$('st3');$('home').addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=S.getBoundingClientRect();S.style.transform=`rotateX(${-((e.clientY-r.top)/r.height-.5)*5}deg) rotateY(${((e.clientX-r.left)/r.width-.5)*8}deg)`});$('home').addEventListener('pointerleave',()=>S.style.transform='');S.style.transition='transform .25s';
+const T=new Date('2026-12-20T00:00:00+03:00');(function t(){const n=Math.max(0,T-new Date());$('d').textContent=n/864e5|0;$('h').textContent=n/36e5%24|0;$('m').textContent=n/6e4%60|0;$('s').textContent=n/1e3%60|0;setTimeout(t,1000)})();
+$('wa').href='https://wa.me/?text='+encodeURIComponent('Karibu kwenye send off ya Lidya Shauri, tarehe 20/12/2026: '+location.origin);
+try{let v=LS.get('vid');if(!v){v=(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)+Date.now());LS.set('vid',v)}if(!sessionStorage.vs){sessionStorage.vs=1;post('/api/visit',{vid:v})}}catch(e){}
+function mode(m){rm=m;$('sy').classList.toggle('on',m);$('sn').classList.toggle('on',!m);$('ya').hidden=!m;$('rl').textContent=m?'Ujumbe wa pongezi (hiari)':'Sababu (hiari)'}
+async function busy(f,fn){const b=f.querySelector('button[type=submit]'),t=b.textContent;b.disabled=true;b.textContent='...';try{await fn()}finally{b.disabled=false;b.textContent=t}}
+$('rf').onsubmit=e=>{e.preventDefault();const n=$('r1').value.trim(),p=$('r2').value.trim();let ok=1;
+ bad($('rf'),0,n.length<3?(ok=0,'Tafadhali weka jina kamili'):'');bad($('rf'),1,!ph(p)?(ok=0,'Namba ya simu si sahihi'):'');if(!ok)return;
+ busy($('rf'),async()=>{const r=await post('/api/rsvp',{name:n,phone:p,attending:rm,guests:+$('r3').value,message:$('r4').value});
+ $('rok').innerHTML=r.ok?(rm?'🌸 <b>Asante '+esc(n)+'!</b> Tumepokea uthibitisho wako, karibu sana.':'🤍 <b>Asante '+esc(n)+'</b> kwa kutujulisha. Mungu akubariki.')+(r.updated?'<br><small>Taarifa zako zimesasishwa.</small>':''):'<span class="err">'+esc(r.error||'Imeshindikana')+'</span>';if(r.ok)$('rf').reset()})};
+$('lf').onsubmit=e=>{e.preventDefault();const n=$('l1').value.trim(),p=$('l2').value.trim();let ok=1;
+ bad($('lf'),0,n.split(/\s+/).length<2?(ok=0,'Weka majina yako yote'):'');bad($('lf'),1,!ph(p)?(ok=0,'Namba ya simu si sahihi'):'');if(!ok)return;
+ me={n,p};LS.set('me',me);go('pay')};
+document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(b.dataset.c).catch(()=>{});b.textContent='Copied ✓';setTimeout(()=>b.textContent='Copy',1500)});
+$('p1').oninput=e=>{const m=e.target.value.match(/(?:Tsh|TZS)\s?([\d,]+)/i);if(m)$('p2').value=parseInt(m[1].replace(/,/g,''))};
+$('pf').onsubmit=e=>{e.preventDefault();const t=$('p1').value.trim(),a=+$('p2').value;let ok=1;
+ bad($('pf'),0,t.length<15?(ok=0,'Bandika ujumbe kamili wa muamala'):'');bad($('pf'),1,!(a>=1000)?(ok=0,'Weka kiasi sahihi'):'');if(!ok)return;
+ busy($('pf'),async()=>{const r=await post('/api/contribute',{name:me.n,phone:me.p,sms:t,amount:a});
+ if(r.ok){$('pok').innerHTML='💛 <b>Asante '+esc(me.n.split(' ')[0])+'!</b> Mchango wako umepokelewa, unasubiri uthibitisho wa waandaaji.';$('pf').reset()}else bad($('pf'),0,r.error||'Imeshindikana')})};
+</script></body></html>

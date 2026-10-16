@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sw"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>Organiser - Send Off</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#faf6ec;color:#26332f;font:15px/1.55 Inter,system-ui,sans-serif}
+header{background:linear-gradient(160deg,#1f4f43,#14342e 50%,#0b1f1b);color:#fffdf7;padding:14px 16px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:2;border-bottom:2px solid #c9a85c}
+header b{flex:1;font:700 18px 'Playfair Display',serif;letter-spacing:.5px}.lv{font-size:12px;opacity:.85}.lv:before{content:"●";color:#ff8b8b;margin-right:4px}.lv.on:before{color:#7dff9c;animation:p 1.5s infinite}
+@keyframes p{50%{opacity:.3}}
+.w{max-width:760px;margin:0 auto;padding:14px}.card{background:#fffdf7;border:1px solid #ece3cf;border-radius:16px;padding:18px;box-shadow:0 12px 30px -18px #14342e40}
+h3{font:500 24px 'Playfair Display',serif;color:#14342e}
+input{width:100%;min-height:46px;padding:10px 14px;border:1px solid #ddd4c0;border-radius:9px;font-size:16px;margin:4px 0 10px;background:#fffefa}input:focus{outline:none;border-color:#c9a85c;box-shadow:0 0 0 3px #c9a85c2e}
+.b{min-height:42px;padding:0 18px;border:0;border-radius:10px;background:linear-gradient(135deg,#1f4f43,#14342e);color:#fff;font-weight:500;font-size:14px;cursor:pointer}.b.o{background:#fffdf7;color:#14342e;border:1px solid #c9a85c}.b:disabled{opacity:.6}
+.g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}@media(max-width:520px){.g{grid-template-columns:1fr 1fr}}
+.s{background:#fffdf7;border:1px solid #ece3cf;border-radius:14px;padding:12px}.s b{display:block;font:600 22px 'Playfair Display',serif;color:#14342e}.s span{font-size:12px;color:#7a847d}
+.tabs{display:flex;gap:6px;margin:12px 0;flex-wrap:wrap}.tabs button{flex:1;min-height:40px;border:1px solid #ece3cf;border-radius:10px;background:#fffdf7;font-weight:500;cursor:pointer;color:#7a847d}.tabs .on{background:#14342e;color:#fff;border-color:#14342e}
+.it{background:#fffdf7;border:1px solid #ece3cf;border-radius:12px;padding:12px;margin:8px 0;font-size:14px}.it small{display:block;color:#7a847d;word-break:break-word}
+.tag{font-size:11px;padding:2px 9px;border-radius:9px;background:#fde9b8;margin-left:6px}.tag.approved{background:#cdeccb}.tag.rejected{background:#f6c9c5}
+.it .b{min-height:34px;padding:0 14px;margin:8px 6px 0 0;font-size:13px}.b.r{background:#c0504d}
+.err{color:#c0504d;font-size:13px}.ex{display:flex;gap:8px;flex-wrap:wrap}
+</style></head><body>
+<header><b>Organiser · LIDYA SHAURI</b><span class="lv" id="lv"><span id="lt">--</span></span><button class="b o" id="lo" hidden onclick="out()">Logout</button></header>
+<div class="w">
+<div class="card" id="lg" style="max-width:380px;margin:40px auto"><h3 style="margin-top:0">Ingia</h3>
+<form id="lf"><label>Username</label><input id="u" autocomplete="username"><label>Password</label><input id="p" type="password" autocomplete="current-password"><div class="err" id="le"></div><button class="b" type="submit">Login</button></form></div>
+<div id="dash" hidden>
+<div class="g" id="st"></div>
+<div class="ex"><button class="b o" onclick="dl('contributions')">Export Contributions</button><button class="b o" onclick="dl('guests')">Export Guests</button></div>
+<div class="tabs"><button class="on" onclick="tb(0,this)">Contributions</button><button onclick="tb(1,this)">Attending</button><button onclick="tb(2,this)">Declined</button></div>
+<div id="ls"></div></div></div>
+<script>
+const $=id=>document.getElementById(id),esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let tok=sessionStorage.getItem('t'),tab=0,D=null,tm;const n=x=>(x||0).toLocaleString('en-US');
+async function call(u,o={}){o.headers={...(o.headers||{}),Authorization:'Bearer '+tok,'Content-Type':'application/json'};const r=await fetch(u,o);if(r.status===401){out();throw 0}return r}
+function out(){sessionStorage.removeItem('t');tok=null;clearInterval(tm);$('dash').hidden=true;$('lo').hidden=true;$('lg').hidden=false;$('lv').className='lv'}
+function show(){$('lg').hidden=true;$('dash').hidden=false;$('lo').hidden=false;load();clearInterval(tm);tm=setInterval(load,4000)}
+$('lf').onsubmit=async e=>{e.preventDefault();$('le').textContent='';try{const r=await fetch('/api/admin/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:$('u').value,password:$('p').value})}),j=await r.json();
+ if(!r.ok)return $('le').textContent=j.error||'Imeshindikana';tok=j.token;sessionStorage.setItem('t',tok);$('p').value='';show()}catch(x){$('le').textContent='Hakuna mtandao.'}};
+async function load(){try{D=await(await call('/api/admin/data')).json();draw();$('lv').className='lv on';$('lt').textContent='LIVE '+new Date().toLocaleTimeString('sw')}catch(e){if(tok)$('lv').className='lv'}}
+function draw(){const s=D.stats;$('st').innerHTML=[['Page views',n(s.views)],['Unique visitors',n(s.unique)],['Wanaohudhuria (wageni)',n(s.guests)+' / '+n(s.accepted)+' watu'],['Hawatahudhuria',n(s.declined)],['Imethibitishwa (Tsh)',n(s.confirmed)],['Zinasubiri (Tsh)',n(s.pending)+' ('+n(s.pendingCount)+')']].map(x=>`<div class="s"><b>${esc(x[1])}</b><span>${x[0]}</span></div>`).join('');
+ const L={pending:'Inasubiri',approved:'Imethibitishwa',rejected:'Imekataliwa'};let h='';
+ if(tab===0)h=D.contributions.map(c=>`<div class="it"><b>${esc(c.name)}</b> · ${esc(c.phone)}<span class="tag ${c.status}">${L[c.status]}</span><br><b>Tsh ${n(c.amount)}</b><small>${esc(c.sms)}</small><small>${new Date(c.createdAt).toLocaleString('sw')}</small>${c.status==='pending'?`<button class="b" onclick="st('${c._id}','approved')">Approve</button><button class="b r" onclick="st('${c._id}','rejected')">Reject</button>`:`<button class="b o" onclick="st('${c._id}','pending')">Undo</button>`}</div>`).join('');
+ else h=D.rsvps.filter(r=>r.attending===(tab===1)).map(r=>`<div class="it"><b>${esc(r.name)}</b> · ${esc(r.phone)}${tab===1?' · wageni '+r.guests:''}<small>${esc(r.message)}</small><small>${new Date(r.updatedAt).toLocaleString('sw')}</small></div>`).join('');
+ $('ls').innerHTML=h||'<p style="text-align:center;color:#6b7a70">Hakuna data bado 🌸</p>'}
+function tb(i,b){tab=i;b.parentNode.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));if(D)draw()}
+async function st(id,s){await call('/api/admin/contributions/'+id,{method:'PATCH',body:JSON.stringify({status:s})});load()}
+async function dl(t){const r=await call('/api/admin/export/'+t),a=document.createElement('a');a.href=URL.createObjectURL(await r.blob());a.download=t+'.csv';a.click()}
+if(tok)show();
+</script></body></html>
